@@ -25,7 +25,7 @@ export function EventsSection() {
 
   useEffect(() => {
     // Use base path in development, root path in production
-    const basePath = import.meta.env.DEV ? '/carbon-react-template-v11' : '';
+    const basePath = import.meta.env.DEV ? '' : '/rossi_vishnujith';
     fetch(`${basePath}/data/events.json`)
       .then(res => res.json())
       .then(data => setEvents(data.events))
