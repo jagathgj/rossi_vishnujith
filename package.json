@@ -1,8 +1,8 @@
 {
-  "name": "carbon-react-template-v11",
+  "name": "rossi_vishnujith",
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://pages.github.ibm.com/Jagath-Jayakumar/carbon-react-template-v11",
+  "homepage": "https://jagathgj.github.io/rossi_vishnujith",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

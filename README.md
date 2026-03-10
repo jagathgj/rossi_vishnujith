@@ -1,191 +1,315 @@
-# Carbon React v11 TypeScript Template
+# Rossi Vishnujith | V46 — Official Website
 
-A minimal, production-ready starter template for building applications with [Carbon Design System v11](https://react.carbondesignsystem.com/) and [React 19](https://react.dev/), powered by [Vite](https://vitejs.dev/) and [TypeScript](https://www.typescriptlang.org/).
+> **Born to Ride. Built to Race.**
 
-> Click **"Use this template"** on GitHub to scaffold your own Carbon-based project instantly.
+Official website of **Rossi Vishnujith (V46)** — professional motorcycle racer, stunter, and founder of **Rossi Moto Works**. Built with React 19, TypeScript, Tailwind CSS v4, and modern web technologies.
 
----
-
-## Features
-
-- **React 19** with Strict Mode enabled
-- **Carbon Design System v11** (`@carbon/react` + `@carbon/icons-react`)
-- **Vite 6** for lightning-fast dev server and optimised production builds
-- **TypeScript 5** with strict configuration
-- **SCSS** with Carbon's modern-compiler API and IBM Plex Sans font
-- Carbon `g100` (dark) theme applied as default
+[![Live Site](https://img.shields.io/badge/Live-rossivishnujith.com-E8FF00?style=for-the-badge)](https://rossivishnujith.com)
+[![Instagram](https://img.shields.io/badge/Instagram-@rossi__xrz-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/rossi_xrz)
 
 ---
 
-## Project Structure
+## 🏍️ About
+
+This is the official digital presence for Rossi Vishnujith, showcasing:
+
+- **Professional Racing & Stunt Portfolio** — Gallery, events, and achievements
+- **Rossi Moto Works** — Premium motorcycle workshop services
+- **Booking System** — For stunt shows, race events, and brand collaborations
+- **Dynamic Event Management** — JSON-based event listings
+- **Contact & Workshop Information** — Location, services, and contact details
+
+---
+
+## ✨ Features
+
+### 🎨 Modern Tech Stack
+- **React 19** with TypeScript and Strict Mode
+- **Tailwind CSS v4** for utility-first styling
+- **Radix UI** components for accessible primitives
+- **Material UI** integration for enhanced components
+- **Framer Motion** for smooth animations
+- **Vite 6** for lightning-fast development and optimized builds
+
+### 🚀 Performance & SEO
+- **Comprehensive SEO** with meta tags, Open Graph, and Twitter Cards
+- **Structured Data** (Schema.org JSON-LD) for Person, LocalBusiness, Event, and WebSite
+- **Responsive Design** optimized for all devices
+- **Fast Loading** with code splitting and lazy loading
+- **PWA-Ready** with theme colors and mobile app capabilities
+
+### 📋 Dynamic Content
+- **JSON-Based Events** — Easy event management via `public/data/events.json`
+- **PHP Backend** — Form submissions handled by `public/api/book-rossi.php`
+- **Environment-Aware Paths** — Seamless dev/production asset loading
+
+---
+
+## 📁 Project Structure
 
 ```
-carbon-react-template-v11/
-├── public/                 # Static assets (favicon, manifest, robots.txt)
+rossi-vishnujith/
+├── public/
+│   ├── api/
+│   │   └── book-rossi.php          # PHP backend for booking forms
+│   ├── data/
+│   │   └── events.json             # Dynamic event listings
+│   ├── assets/                     # Images, videos, and media
+│   ├── favicon.ico
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   └── manifest.json
 ├── src/
-│   ├── App.tsx             # Root application component
-│   ├── Header.tsx          # Carbon UI Shell header component
-│   ├── index.scss          # Global styles & Carbon SCSS entry point
-│   ├── main.tsx            # React DOM entry point
-│   └── vite-env.d.ts       # Vite environment type declarations
-├── index.html              # HTML entry point
-├── vite.config.ts          # Vite configuration
-├── tsconfig.json           # TypeScript base config
-├── tsconfig.app.json       # TypeScript app config
-└── tsconfig.node.json      # TypeScript Node config
+│   ├── app/
+│   │   ├── App.tsx                 # Main application component
+│   │   └── components/
+│   │       ├── Navbar.tsx          # Navigation with smooth scroll
+│   │       ├── HeroSection.tsx     # Hero banner with CTA
+│   │       ├── AboutSection.tsx    # Biography and achievements
+│   │       ├── GallerySection.tsx  # Photo gallery with masonry layout
+│   │       ├── EventsSection.tsx   # Dynamic event listings
+│   │       ├── MerchSection.tsx    # Rossi Moto Works services
+│   │       ├── ContactSection.tsx  # Booking form with PHP backend
+│   │       ├── Footer.tsx          # Footer with social links
+│   │       ├── BookingContext.tsx  # Booking state management
+│   │       ├── BookingModal.tsx    # Booking modal component
+│   │       ├── figma/              # Figma-related utilities
+│   │       │   └── ImageWithFallback.tsx
+│   │       └── ui/                 # Reusable Radix UI components
+│   │           ├── accordion.tsx
+│   │           ├── button.tsx
+│   │           ├── card.tsx
+│   │           ├── dialog.tsx
+│   │           └── ... (50+ components)
+│   ├── styles/
+│   │   ├── index.css               # Main stylesheet entry
+│   │   ├── tailwind.css            # Tailwind directives
+│   │   ├── theme.css               # CSS custom properties
+│   │   └── fonts.css               # DM Sans font imports
+│   ├── main.tsx                    # React DOM entry point
+│   └── vite-env.d.ts               # Vite type declarations
+├── guidelines/
+│   └── Guidelines.md               # Development guidelines
+├── workflows/
+│   └── deploy.yml                  # GitHub Actions deployment
+├── index.html                      # HTML entry with comprehensive SEO
+├── vite.config.ts                  # Vite configuration
+├── postcss.config.mjs              # PostCSS for Tailwind
+├── tsconfig.json                   # TypeScript configuration
+└── package.json                    # Dependencies and scripts
 ```
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) v18 or later
-- npm v9 or later (comes with Node.js)
+- **Node.js** v18 or later
+- **npm** v9 or later
 
 ### Installation
 
 ```bash
-# 1. Clone or use this template
-git clone https://github.com/your-username/carbon-react-template-v11.git
-cd carbon-react-template-v11
+# Clone the repository
+git clone https://github.com/jagathgj/rossi_vishnujith.git
+cd rossi_vishnujith
 
-# 2. Install dependencies
+# Install dependencies
 npm install
+
+# Start development server
+npm run dev
 ```
 
----
-
-## Available Scripts
-
-### `npm run dev`
-
-Starts the Vite development server with Hot Module Replacement (HMR).  
-Open [http://localhost:5173](http://localhost:5173) to view the app in your browser.
-
-### `npm run build`
-
-Type-checks the project with `tsc` and then builds the app for production into the `dist/` folder.  
-The output is minified and optimised for best performance.
-
-### `npm run preview`
-
-Serves the production build locally so you can verify the output before deploying.
-Open [http://localhost:4173](http://localhost:4173) to preview the built app.
-
-### `npm run deploy`
-
-Builds the app (`predeploy` runs `npm run build` automatically) and publishes the `dist/` folder to the `gh-pages` branch of your repository.
-See [GitHub Pages deployment](#-deploying-to-github-pages) below for setup instructions.
+Open [http://localhost:5173](http://localhost:5173) to view the site.
 
 ---
 
-## Deploying to GitHub Pages
+## 📜 Available Scripts
 
-1. **Set the `homepage` field** in [`package.json`](package.json) to your IBM GitHub Pages URL:
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start Vite dev server with HMR at `localhost:5173` |
+| `npm run build` | Type-check with `tsc` and build for production |
+| `npm run preview` | Preview production build at `localhost:4173` |
+| `npm run deploy` | Build and deploy to GitHub Pages |
 
+---
+
+## 🌐 Deployment
+
+### GitHub Pages
+
+1. **Update `package.json`:**
    ```json
-   "homepage": "https://pages.github.ibm.com/<your-org>/<your-repo-name>"
+   "homepage": "https://yourusername.github.io/rossi_vishnujith"
    ```
 
-2. **Set the Vite `base` option** in [`vite.config.ts`](vite.config.ts) to match your repository name so assets resolve correctly:
-
+2. **Update `vite.config.ts`:**
    ```ts
    export default defineConfig({
-     base: '/<your-repo-name>/',
+     base: '/rossi_vishnujith/',
      // ...
    });
    ```
 
-3. **Run the deploy script:**
-
+3. **Deploy:**
    ```bash
    npm run deploy
    ```
 
-   This will:
-   - Run `npm run build` (type-check + Vite production build → `dist/`)
-   - Push the `dist/` folder to the `gh-pages` branch via `gh-pages`
+4. **Enable GitHub Pages:**
+   - Go to **Settings → Pages**
+   - Set source to `gh-pages` branch
 
-4. In your GitHub repository, go to **Settings → Pages** and confirm the source is set to the `gh-pages` branch.
+### Custom Domain
 
-Your app will be live at the URL set in `homepage`.
-
----
-
-## Styling
-
-Global styles and Carbon's SCSS are imported in [`src/index.scss`](src/index.scss):
-
-```scss
-@use "@carbon/react";
-@use "@carbon/react/scss/theme" as *;
-```
-
-The Vite config enables Carbon's **modern-compiler** SCSS API to suppress deprecation warnings from Sass:
-
-```ts
-// vite.config.ts
-css: {
-  preprocessorOptions: {
-    scss: {
-      api: 'modern-compiler',
-    },
-  },
-},
-```
-
-The `<Theme>` component wraps the entire application in [`src/App.tsx`](src/App.tsx) to apply a consistent Carbon theme globally:
-
-```tsx
-import { Theme } from '@carbon/react';
-
-const App = () => (
-  <Theme theme="g100"> {/* white | g10 | g90 | g100 */}
-    <div className="container">
-      {/* your app content */}
-    </div>
-  </Theme>
-);
-```
+1. Add `CNAME` file to `public/` with your domain
+2. Update canonical URLs in `index.html`
+3. Configure DNS records with your provider
 
 ---
 
-## Dependencies
+## 📝 Content Management
 
+### Managing Events
+
+Edit [`public/data/events.json`](public/data/events.json):
+
+```json
+{
+  "events": [
+    {
+      "date": "MAR 28",
+      "year": "2026",
+      "name": "Stunt Mania 2026",
+      "location": "Kochi, Kerala",
+      "time": "6:00 PM IST"
+    }
+  ]
+}
+```
+
+### Booking Form Backend
+
+The booking form uses PHP at [`public/api/book-rossi.php`](public/api/book-rossi.php).
+
+**To enable:**
+1. Deploy PHP file to a server with PHP support
+2. Update form action URL in [`src/components/ContactSection.tsx`](src/components/ContactSection.tsx)
+3. Configure email settings in the PHP file
+
+**Form Fields:**
+- Name, Email, Phone (required)
+- Service Type: Stunt Show, Race Event, Brand Collaboration
+- Preferred Date
+- Message
+
+---
+
+## 🎨 Styling & Theming
+
+### Color Scheme
+- **Background:** `#0A0A0A` (Dark)
+- **Primary:** `#E8FF00` (Neon Yellow)
+- **Text:** `#FFFFFF` (White)
+
+### Typography
+- **Font Family:** DM Sans (Google Fonts)
+- **Weights:** 400, 500, 600, 700
+
+### Customization
+
+Modify theme variables in [`src/styles/theme.css`](src/styles/theme.css):
+
+```css
+:root {
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+  --primary: #E8FF00;
+  /* ... */
+}
+```
+
+---
+
+## 🔧 Key Dependencies
+
+### Core
 | Package | Version | Purpose |
-|---|---|---|
+|---------|---------|---------|
 | `react` | ^19.0.0 | UI library |
 | `react-dom` | ^19.0.0 | React DOM renderer |
-| `@carbon/react` | ^1.73.0 | Carbon Design System components |
-| `@carbon/icons-react` | ^11.56.1 | Carbon icon library |
+| `typescript` | ^5.7.2 | Type safety |
+| `vite` | 6.3.5 | Build tool |
 
-### Dev Dependencies
-
+### UI & Styling
 | Package | Version | Purpose |
-|---|---|---|
-| `vite` | ^6.1.0 | Build tool & dev server |
-| `@vitejs/plugin-react` | ^4.3.4 | React Fast Refresh for Vite |
-| `typescript` | ^5.7.2 | Static type checking |
-| `sass` | ^1.85.0 | SCSS preprocessor |
-| `gh-pages` | ^6.3.0 | GitHub Pages deployment |
-| `@types/react` | ^19.0.0 | React type definitions |
-| `@types/react-dom` | ^19.0.0 | React DOM type definitions |
+|---------|---------|---------|
+| `tailwindcss` | 4.1.12 | Utility-first CSS |
+| `@radix-ui/*` | Latest | Accessible UI primitives |
+| `@mui/material` | 7.3.5 | Material Design components |
+| `lucide-react` | 0.487.0 | Icon library |
+| `motion` | 12.23.24 | Animation library |
+
+### Forms & Data
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `react-hook-form` | 7.55.0 | Form management |
+| `date-fns` | 3.6.0 | Date utilities |
+| `sonner` | 2.0.3 | Toast notifications |
 
 ---
 
-## Useful Links
+## 📞 Contact & Social
 
-- [Carbon Design System](https://carbondesignsystem.com/)
-- [Carbon React Components](https://react.carbondesignsystem.com/)
-- [Carbon Icons](https://carbondesignsystem.com/elements/icons/library/)
-- [Vite Documentation](https://vitejs.dev/guide/)
-- [React Documentation](https://react.dev/)
-- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- **Website:** [rossivishnujith.com](https://rossivishnujith.com)
+- **Email:** [rossi@rossirides.com](mailto:rossi@rossirides.com)
+- **Phone:** [+91 82899 17046](tel:+918289917046)
+- **Instagram:** [@rossi_xrz](https://instagram.com/rossi_xrz)
+- **YouTube:** [@rossivishnujith](https://youtube.com/@rossivishnujith)
+- **Facebook:** [rossivishnujith](https://facebook.com/rossivishnujith)
+
+### Rossi Moto Works
+**Address:** Chekkalamukku, Sreekaryam, Near IndianOil Pump, Trivandrum, Kerala 695017
+
+**Services:**
+- Full Engine Overhaul
+- Performance Upgrades
+- Custom Bodywork & Paint
+- Race Bike Preparation
+- General Servicing
+- Detailing & Restoration
+
+**Hours:**
+- Mon-Fri: 9:00 AM - 7:00 PM
+- Saturday: 9:00 AM - 5:00 PM
+- Sunday: Closed
 
 ---
 
-## License
+## 📄 License
 
-MIT © [Jagath Jayakumar](https://github.ibm.com/Jagath-Jayakumar)
+MIT © [Jagath Jayakumar](https://github.com/jagathgj)
+
+---
+
+## 🙏 Acknowledgments
+
+Built with ❤️ using:
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Material UI](https://mui.com/)
+
+---
+
+<div align="center">
+
+**Born to Ride. Built to Race.**
+
+Made with 🏍️ by Rossi Vishnujith
+
+</div>
