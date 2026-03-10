@@ -1,0 +1,32 @@
+{
+  "events": [
+    {
+      "date": "MAR 28",
+      "year": "2026",
+      "name": "Stunt Mania 2026",
+      "location": "Kochi, Kerala",
+      "time": "6:00 PM IST"
+    },
+    {
+      "date": "APR 15",
+      "year": "2026",
+      "name": "Track Day Kerala",
+      "location": "Kari Motor Speedway",
+      "time": "10:00 AM IST"
+    },
+    {
+      "date": "MAY 05",
+      "year": "2026",
+      "name": "Bike Fest South",
+      "location": "Bangalore, Karnataka",
+      "time": "4:00 PM IST"
+    },
+    {
+      "date": "JUN 20",
+      "year": "2026",
+      "name": "MotoX Championship",
+      "location": "Chennai, Tamil Nadu",
+      "time": "2:00 PM IST"
+    }
+  ]
+}
