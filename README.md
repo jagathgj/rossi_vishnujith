@@ -193,12 +193,31 @@ Edit [`public/data/events.json`](public/data/events.json):
 
 ### Booking Form Backend
 
+⚠️ **Important:** GitHub Pages doesn't support PHP. You must host the backend separately.
+
 The booking form uses PHP at [`public/api/book-rossi.php`](public/api/book-rossi.php).
 
-**To enable:**
-1. Deploy PHP file to a server with PHP support
-2. Update form action URL in [`src/components/ContactSection.tsx`](src/components/ContactSection.tsx)
-3. Configure email settings in the PHP file
+**Setup Steps:**
+
+1. **Upload PHP File:**
+   - Upload `public/api/book-rossi.php` to your PHP-enabled server
+   - Example: `https://hello.com/api/book-rossi.php`
+
+2. **Configure Email (in PHP file, line 20):**
+   ```php
+   $to_email = "your-email@example.com";  // Change this
+   ```
+
+3. **Set Environment Variable:**
+   - Create `.env` file in project root:
+   ```bash
+   VITE_BACKEND_URL=https://hello.com/api/book-rossi.php
+   ```
+
+4. **Verify Server Requirements:**
+   - PHP 7.0 or higher
+   - `mail()` function enabled OR SMTP configured
+   - CORS headers properly set (already in PHP file)
 
 **Form Fields:**
 - Name, Email, Phone (required)
