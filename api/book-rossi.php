@@ -177,7 +177,7 @@ $body_html = <<<EOT
 EOT;
 
 // ── Send Email ────────────────────────────────────────────────
-$headers  = "From: $site_name <noreply@rossivishnujith.com>\r\n";
+$headers  = "From: $site_name <jagath.gj@gmail.com>\r\n";
 $headers .= "Reply-To: $name <$email>\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: multipart/alternative; boundary=\"BOUNDARY_V46\"\r\n";
@@ -209,7 +209,7 @@ Team Rossi Vishnujith
 rossivishnujith.com
 EOT;
 
-    $reply_headers  = "From: $site_name <noreply@jagath.gj.com>\r\n";
+    $reply_headers  = "From: $site_name <jagath.gj@gmail.com>\r\n";
     $reply_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     @mail($email, $reply_subject, $reply_body, $reply_headers);
