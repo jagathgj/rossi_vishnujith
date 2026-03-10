@@ -164,8 +164,28 @@ export function ContactSection() {
           <form
             onSubmit={async (e) => {
               e.preventDefault();
+              
+              // Get the backend URL from environment variable or use default
+              // For GitHub Pages, you need to host the PHP file on a separate server
+              // Set VITE_BACKEND_URL in your .env file or use the default
+              const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://hellojagath.com/api/book-rossi.php';
+              
+              // In development, show a message since PHP won't work with Vite dev server
+              if (import.meta.env.DEV) {
+                alert("📧 Form submission in development mode.\n\nWill send to: " + backendUrl + "\n\nForm data:\n" +
+                  JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    service: formData.eventType,
+                    message: formData.message,
+                  }, null, 2));
+                setFormData({ name: "", email: "", phone: "", eventType: "", message: "" });
+                return;
+              }
+              
               try {
-                const response = await fetch("/api/book-rossi.php", {
+                const response = await fetch(backendUrl, {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify({
@@ -185,7 +205,8 @@ export function ContactSection() {
                   alert("❌ " + result.message);
                 }
               } catch (error) {
-                alert("❌ Failed to send request. Please try again or contact us directly.");
+                console.error('Form submission error:', error);
+                alert("❌ Failed to send request. Please try again or contact us directly at rossi@rossirides.com");
               }
             }}
             className="space-y-4"
