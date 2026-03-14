@@ -3,9 +3,9 @@ import RossiPortrait from "../assets/trophy1.jpeg";
 
 const stats = [
   { value: "12+", label: "Years" },
-  { value: "200+", label: "Shows" },
+  { value: "50+", label: "Shows" },
   { value: "15", label: "Trophies" },
-  { value: "4", label: "States" },
+  { value: "3", label: "States" },
 ];
 
 export function AboutSection() {
@@ -108,8 +108,8 @@ export function AboutSection() {
               }}
             >
               On screen, he is the stunt rider behind some of Malayalam cinema's
-              biggest action sequences, with credits in Kannur Squad, Bazooka,
-              and Rifle Club. On track, he has competed in nearly every race
+              biggest action sequences, with credits in Kaappa, Kannur Squad, Bazooka,
+              Rifle Club, Cut Mango tree, Cosmic Samson and Kollam Kott Company. On track, he has competed in nearly every race
               circuit across Kerala, building a reputation as one of the state's
               most fearless and consistent riders.
             </p>

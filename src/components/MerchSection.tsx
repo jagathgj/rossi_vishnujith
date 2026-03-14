@@ -47,8 +47,8 @@ const services = [
 ];
 
 const openingHours = [
-  { day: "Monday – Friday", time: "9:00 AM – 7:00 PM" },
-  { day: "Saturday", time: "9:00 AM – 5:00 PM" },
+  { day: "Monday – Friday", time: "10:00 AM – 7:00 PM" },
+  { day: "Saturday", time: "10:00 AM – 6:00 PM" },
   { day: "Sunday", time: "Closed" },
 ];
 
@@ -108,23 +108,22 @@ export function MechanicShopSection() {
                 lineHeight: 1,
               }}
             >
-              ROSSI <span style={{ color: "#E8FF00" }}>MOTO WORKS</span>
+              ROSSI's <span style={{ color: "#E8FF00" }}>THE DOCTOR MOTO GARAGE</span>
             </h2>
-            <p
-              className="mt-4 max-w-xl"
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                color: "rgba(255,255,255,0.6)",
-                fontSize: 16,
-                lineHeight: 1.7,
-              }}
-            >
-              Every bike. Every budget. One garage.
-              <p>
-                Rossi Moto Works serves riders of all kinds, from daily rides to
-                track-ready superbikes, with skill, speed and zero compromise.
-              </p>
-            </p>
+          <p
+  className="mt-4 max-w-xl"
+  style={{
+    fontFamily: "'DM Sans', sans-serif",
+    color: "rgba(255,255,255,0.6)",
+    fontSize: 16,
+    lineHeight: 1.7,
+  }}
+>
+  Every bike. Every budget. One garage.
+  <br />
+  Rossi Moto Works serves riders of all kinds, from daily rides to
+  track-ready superbikes, with skill, speed and zero compromise.
+</p>
           </div>
           {/* <button
             onClick={() => openBooking("general_service")}

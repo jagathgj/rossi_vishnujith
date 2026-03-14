@@ -149,8 +149,8 @@ export function HeroSection() {
                 letterSpacing: "0.1em",
               }}
             >
-              🏆 12 Championship Wins &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ 50+ Stunt
-              Shows &nbsp;&nbsp;·&nbsp;&nbsp; 🏍️ Competing Since 2015
+              🏆 46 Championship Wins &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ 50+ Stunt
+              Shows &nbsp;&nbsp;·&nbsp;&nbsp; 🏍️ Competing Since 2010
               &nbsp;&nbsp;·&nbsp;&nbsp; 🎥 7 Movies &nbsp;&nbsp;·&nbsp;&nbsp; 🔥
               20K+ Fans &nbsp;&nbsp;·&nbsp;&nbsp;
             </span>

@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import path from 'path';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import { imagetools } from 'vite-imagetools'
 
 export default defineConfig({
   // Set base to your repository name for GitHub Pages deployment
@@ -12,6 +13,7 @@ export default defineConfig({
     // Tailwind is not being actively used – do not remove them
     react(),
     tailwindcss(),
+    imagetools()
   ],
   resolve: {
     alias: {

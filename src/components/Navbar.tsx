@@ -21,6 +21,14 @@ export function Navbar() {
     el?.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setMobileOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <>
       <nav
@@ -43,12 +51,14 @@ export function Navbar() {
                 Vishnu Jith
               </span>
               <span
-                className="px-1 py-0.5 text-xs flex items-center"
+                className="px-1 py-0.5 text-xs flex items-center mb-1"
                 style={{
                   fontFamily: "'Bebas Neue', sans-serif",
                   backgroundColor: "#E8FF00",
                   color: "#0A0A0A",
                   fontSize: 14,
+                  display: "flex",
+                  alignItems: "center"
                 }}
               >
                 #46
@@ -96,7 +106,7 @@ export function Navbar() {
               href="https://www.instagram.com/rossi_xrz"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-1 flex items-center justify-center w-9 h-9 transition-colors duration-200 hover:text-[#E8FF00]"
+              className="-ml-4 flex items-center justify-center w-9 h-9 transition-colors duration-200 hover:text-[#E8FF00]"
               style={{ color: "#fff" }}
               aria-label="Instagram"
             >

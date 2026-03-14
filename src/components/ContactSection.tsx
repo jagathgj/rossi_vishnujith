@@ -137,7 +137,7 @@ export function ContactSection() {
             <div className="flex gap-4 mt-10">
               {[
                 { icon: <Instagram size={20} />, label: "Instagram", url: "https://www.instagram.com/rossi_xrz?igsh=cWl5bHhlZDB1cDAx" },
-                { icon: <Youtube size={20} />, label: "YouTube", url: "https://youtube.com/@rossivishnujith" },
+                { icon: <Youtube size={20} />, label: "YouTube", url: "https://www.youtube.com/watch?v=zvXFvvBGH-Y" },
                 { icon: <Facebook size={20} />, label: "Facebook", url: "https://facebook.com/rossivishnujith" },
               ].map((s) => (
                 <a

@@ -73,7 +73,7 @@ export function Footer() {
           <div className="flex gap-3 md:justify-end">
             {[
               { icon: <Instagram size={18} />, label: "Instagram", url: "https://instagram.com/rossivishnujith" },
-              { icon: <Youtube size={18} />, label: "YouTube", url: "https://youtube.com/@rossivishnujith" },
+              { icon: <Youtube size={18} />, label: "YouTube", url: "https://www.youtube.com/watch?v=zvXFvvBGH-Y" },
               { icon: <Facebook size={18} />, label: "Facebook", url: "https://facebook.com/rossivishnujith" },
             ].map((s) => (
               <a

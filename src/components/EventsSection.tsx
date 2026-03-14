@@ -23,14 +23,12 @@ export function EventsSection() {
     return () => obs.disconnect();
   }, []);
 
-  useEffect(() => {
-    // Use base path in development, root path in production
-    const basePath = import.meta.env.DEV ? '' : '/rossi_vishnujith';
-    fetch(`${basePath}/data/events.json`)
-      .then(res => res.json())
-      .then(data => setEvents(data.events))
-      .catch(err => console.error('Failed to load events:', err));
-  }, []);
+useEffect(() => {
+  fetch(`${import.meta.env.BASE_URL}data/events.json`)
+    .then(res => res.json())
+    .then(data => setEvents(data.events))
+    .catch(err => console.error('Failed to load events:', err));
+}, []);
 
   return (
     <section id="events" ref={ref} className="py-24 px-6" style={{ backgroundColor: "#0A0A0A" }}>

@@ -287,7 +287,7 @@ Modify theme variables in [`src/styles/theme.css`](src/styles/theme.css):
 - **Email:** [rossi@rossirides.com](mailto:rossi@rossirides.com)
 - **Phone:** [+91 82899 17046](tel:+918289917046)
 - **Instagram:** [@rossi_xrz](https://instagram.com/rossi_xrz)
-- **YouTube:** [@rossivishnujith](https://youtube.com/@rossivishnujith)
+- **YouTube:** [@rossivishnujith](https://www.youtube.com/watch?v=zvXFvvBGH-Y)
 - **Facebook:** [rossivishnujith](https://facebook.com/rossivishnujith)
 
 ### Rossi Moto Works

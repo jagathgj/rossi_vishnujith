@@ -1,29 +1,6 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { Maximize2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-
-const allImages = [
-  // Initial 8
-  { src: "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=900", alt: "Stunt action 1" },
-  { src: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=900", alt: "Stunt action 2" },
-  { src: "https://images.unsplash.com/photo-1517524285303-d6fc683dddf8?w=900", alt: "Racing track" },
-  { src: "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=800", alt: "Bike close-up 1" },
-  { src: "https://images.unsplash.com/photo-1502744688674-c619d1586c9e?w=800", alt: "Bike close-up 2" },
-  { src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200", alt: "Event crowd" },
-  { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800", alt: "Racing shot" },
-  { src: "https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=1400", alt: "Speed shot" },
-  // Extra 10 for "SEE MORE"
-  { src: "https://images.unsplash.com/photo-1758887698831-a230bdb98487?w=900", alt: "Racing track action" },
-  { src: "https://images.unsplash.com/photo-1764605513250-aa9214010eab?w=900", alt: "Motorcycle stunt wheelie" },
-  { src: "https://images.unsplash.com/photo-1708579449068-1e886fed6550?w=900", alt: "Sport bike engine closeup" },
-  { src: "https://images.unsplash.com/photo-1719535218488-90a2e2248db5?w=900", alt: "Motorcycle rider helmet" },
-  { src: "https://images.unsplash.com/photo-1760555961082-9bc058f9c4e2?w=900", alt: "Biker night ride" },
-  { src: "https://images.unsplash.com/photo-1771402629441-95e637743f93?w=900", alt: "Motorcycle garage" },
-  { src: "https://images.unsplash.com/photo-1595345263387-c01f60e7c1b9?w=900", alt: "Mechanic tools" },
-  { src: "https://images.unsplash.com/photo-1762604462465-76720d039e9f?w=900", alt: "Motorcycle repair" },
-  { src: "https://images.unsplash.com/photo-1633120851371-403ecc2d81ec?w=900", alt: "Motorbike speedway" },
-  { src: "https://images.unsplash.com/photo-1600369671373-1e8571e7e95f?w=800", alt: "Rider portrait" },
-];
 
 const INITIAL_COUNT = 8;
 const LOAD_MORE_COUNT = 10;
@@ -33,6 +10,23 @@ export function GallerySection() {
   const [visible, setVisible] = useState(false);
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+   const allImages = useMemo(() => {
+    const images = [
+      { src: `${import.meta.env.BASE_URL}images/1.webp`, alt: "Stunt action 1" },
+      { src: `${import.meta.env.BASE_URL}images/2.webp`, alt: "Stunt action 2" },
+      { src: `${import.meta.env.BASE_URL}images/3.webp`, alt: "Racing track" },
+      { src: `${import.meta.env.BASE_URL}images/4.webp`, alt: "Bike close-up 1" },
+      { src: `${import.meta.env.BASE_URL}images/5.webp`, alt: "Bike close-up 2" },
+      { src: `${import.meta.env.BASE_URL}images/6.webp`, alt: "Event crowd" },
+      { src: `${import.meta.env.BASE_URL}images/7.webp`, alt: "Racing shot" },
+      { src: `${import.meta.env.BASE_URL}images/8.webp`, alt: "Speed shot" },
+      { src: `${import.meta.env.BASE_URL}images/9.webp`, alt: "Racing track action" },
+      { src: `${import.meta.env.BASE_URL}images/10.webp`, alt: "Motorcycle stunt" },
+      { src: `${import.meta.env.BASE_URL}images/11.webp`, alt: "Sport bike" },
+    ];
+    return images.sort(() => Math.random() - 0.5);
+  }, []);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
