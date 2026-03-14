@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { Maximize2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { motion } from "motion/react";
 
 const INITIAL_COUNT = 8;
 const LOAD_MORE_COUNT = 10;
@@ -24,6 +25,9 @@ export function GallerySection() {
       { src: `${import.meta.env.BASE_URL}images/9.webp`, alt: "Racing track action" },
       { src: `${import.meta.env.BASE_URL}images/10.webp`, alt: "Motorcycle stunt" },
       { src: `${import.meta.env.BASE_URL}images/11.webp`, alt: "Sport bike" },
+      { src: `${import.meta.env.BASE_URL}images/12.webp`, alt: "Sport bike" },
+      { src: `${import.meta.env.BASE_URL}images/13.webp`, alt: "Sport bike" },
+      { src: `${import.meta.env.BASE_URL}images/14.webp`, alt: "Sport bike" },
     ];
     return images.sort(() => Math.random() - 0.5);
   }, []);
@@ -137,25 +141,61 @@ export function GallerySection() {
 
           {/* SEE MORE button */}
           {hasMore && (
-            <div className="text-center mt-12">
-              <button
-                onClick={handleSeeMore}
-                className="px-8 py-3 transition-all duration-200 hover:bg-[#E8FF00] hover:text-[#0A0A0A]"
-                style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  color: "#E8FF00",
-                  fontSize: 14,
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  border: "1px solid #E8FF00",
-                  backgroundColor: "transparent",
-                  cursor: "pointer",
-                }}
-              >
-                SEE MORE
-              </button>
-            </div>
-          )}
+  <div className="text-center mt-12">
+    <motion.button
+      onClick={handleSeeMore}
+      className="relative overflow-hidden px-8 py-3 cursor-pointer"
+      style={{
+        fontFamily: "'Barlow Condensed', sans-serif",
+        color: "#E8FF00",
+        fontSize: 14,
+        letterSpacing: "0.15em",
+        textTransform: "uppercase",
+        border: "1px solid #E8FF00",
+        backgroundColor: "transparent",
+      }}
+      whileHover="hover"
+      whileTap={{ scale: 0.95 }}
+    >
+      <motion.span
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(105deg, transparent 30%, rgba(232,255,0,0.3) 50%, transparent 70%)",
+          x: "-100%",
+        }}
+        variants={{
+          hover: {
+            x: "200%",
+            transition: { duration: 0.4, ease: "easeIn" },
+          },
+        }}
+      />
+      <motion.span
+        className="absolute inset-0 pointer-events-none"
+        style={{ border: "1px solid transparent" }}
+        variants={{
+          hover: {
+            border: "1px solid #E8FF00",
+            transition: { duration: 0.2 },
+          },
+        }}
+      />
+      <motion.span
+        className="relative z-10 block"
+        variants={{
+          hover: {
+            skewX: -8,
+            x: 4,
+            color: "#E8FF00",
+            transition: { duration: 0.2 },
+          },
+        }}
+      >
+        SEE MORE
+      </motion.span>
+    </motion.button>
+  </div>
+)}
 
           {!hasMore && (
             <div className="text-center mt-10">

@@ -37,3 +37,8 @@ body,
   color: $text-inverse;
 }
 
+@media (max-width: 768px) {
+  .racer-img {
+    height: 900px !important;
+  }
+}

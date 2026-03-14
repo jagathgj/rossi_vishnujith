@@ -149,7 +149,7 @@ export function MechanicShopSection() {
           {/* Large shop image */}
           <div className="lg:col-span-3 overflow-hidden relative group">
             <img
-              src="https://images.unsplash.com/photo-1771402629441-95e637743f93?w=1200"
+              src={`${import.meta.env.BASE_URL}images/ws-1.webp`}
               alt="Rossi Moto Works workshop"
               className="w-full h-full object-cover min-h-[320px] transition-transform duration-700 group-hover:scale-105"
             />
@@ -305,11 +305,13 @@ export function MechanicShopSection() {
             </div>
           </div>
           <div className="overflow-hidden relative group">
-            <img
-              src="https://images.unsplash.com/photo-1762604462465-76720d039e9f?w=900"
-              alt="Motorcycle repair service"
-              className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+           <img
+  src={`${import.meta.env.BASE_URL}images/ws-3.webp`}
+  alt="Motorcycle repair service"
+  className="w-full h-56 object-cover object-top-left transition-transform duration-700 group-hover:scale-105"
+  style={{ objectPosition: "30% 65%" }}
+  
+/>
             <div
               className="absolute bottom-0 left-0 right-0 px-5 py-3"
               style={{

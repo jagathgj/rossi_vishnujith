@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Instagram } from "lucide-react";
 import { useBooking } from "./BookingContext";
+import { motion } from "motion/react";
 
 const navLinks = ["Home", "About", "Gallery", "Events", "Garage"];
 
@@ -69,39 +70,78 @@ export function Navbar() {
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
-                key={link}
-                onClick={() => scrollTo(link)}
-                className="transition-colors duration-200 tracking-widest uppercase hover:text-[#E8FF00]"
-                style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  color: "#fff",
-                  fontSize: 13,
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  letterSpacing: "0.1em",
-                }}
-              >
-                {link}
-              </button>
-            ))}
-            <button
-              onClick={() => scrollTo("contact")}
-              className="px-6 py-2 transition-all duration-200 hover:bg-[#d4e600]"
-              style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                backgroundColor: "#E8FF00",
-                color: "#0A0A0A",
-                fontSize: 13,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                border: "none",
-                cursor: "pointer",
-              }}
-            >
-              BOOK ROSSI
-            </button>
+  <motion.button
+    key={link}
+    onClick={() => scrollTo(link)}
+    className="relative tracking-widest uppercase cursor-pointer"
+    style={{
+      fontFamily: "'Barlow Condensed', sans-serif",
+      color: "#fff",
+      fontSize: 13,
+      background: "none",
+      border: "none",
+      letterSpacing: "0.1em",
+    }}
+    whileHover="hover"
+    whileTap={{ scale: 0.95 }}
+    animate={{ color: "#fff" }}
+  >
+    <motion.span
+      className="block"
+      variants={{
+        hover: {
+          color: "#E8FF00",
+          skewX: -6,
+          x: 2,
+          transition: { duration: 0.15 },
+        },
+      }}
+    >
+      {link}
+    </motion.span>
+  </motion.button>
+))}
+            <motion.button
+  onClick={() => scrollTo("contact")}
+  className="relative overflow-hidden px-6 py-2 cursor-pointer"
+  style={{
+    fontFamily: "'Barlow Condensed', sans-serif",
+    backgroundColor: "#E8FF00",
+    color: "#0A0A0A",
+    fontSize: 13,
+    letterSpacing: "0.1em",
+    textTransform: "uppercase",
+    border: "none",
+  }}
+  whileHover="hover"
+  whileTap={{ scale: 0.95 }}
+>
+  <motion.span
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      background: "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.4) 50%, transparent 70%)",
+      x: "-100%",
+    }}
+    variants={{
+      hover: {
+        x: "200%",
+        transition: { duration: 0.4, ease: "easeIn" },
+      },
+    }}
+  />
+  <motion.span
+    className="relative z-10 block"
+    variants={{
+      hover: {
+        skewX: -8,
+        x: 4,
+        transition: { duration: 0.2 },
+      },
+    }}
+  >
+    BOOK ROSSI
+  </motion.span>
+</motion.button>
             <a
               href="https://www.instagram.com/rossi_xrz"
               target="_blank"
@@ -149,9 +189,9 @@ export function Navbar() {
             </button>
           ))}
           <div className="flex items-center gap-6 mt-4">
-            <button
+            <motion.button
               onClick={() => scrollTo("contact")}
-              className="px-8 py-3"
+              className="relative overflow-hidden cursor-pointer"
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 backgroundColor: "#E8FF00",
@@ -160,11 +200,37 @@ export function Navbar() {
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 border: "none",
-                cursor: "pointer",
+                padding: "12px 32px",
               }}
+              whileHover="hover"
+              whileTap={{ scale: 0.95 }}
             >
-              BOOK ROSSI
-            </button>
+              <motion.span
+                className="absolute inset-0"
+                style={{
+                  background: "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.4) 50%, transparent 70%)",
+                  x: "-100%",
+                }}
+                variants={{
+                  hover: {
+                    x: "200%",
+                    transition: { duration: 0.4, ease: "easeIn" },
+                  },
+                }}
+              />
+              <motion.span
+                className="relative z-10 block"
+                variants={{
+                  hover: {
+                    skewX: -8,
+                    x: 4,
+                    transition: { duration: 0.2 },
+                  },
+                }}
+              >
+                BOOK ROSSI
+              </motion.span>
+            </motion.button>
             <a
               href="https://www.instagram.com/rossi_xrz"
               target="_blank"

@@ -100,7 +100,7 @@ useEffect(() => {
                 <Clock size={14} />
                 <span style={{ fontFamily: "'DM Sans', sans-serif" }}>{ev.time}</span>
               </div>
-              <button
+              {/* <button
                 className="w-full py-2.5 transition-all duration-200 hover:bg-[#E8FF00] hover:text-[#0A0A0A]"
                 style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
@@ -114,7 +114,7 @@ useEffect(() => {
                 }}
               >
                 GET TICKETS
-              </button>
+              </button> */}
             </div>
           ))}
         </div>
