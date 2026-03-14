@@ -207,7 +207,7 @@ const allImages = useMemo(() => {
                   fontSize: 14,
                 }}
               >
-                You've seen all the photos
+                You've seen few photos. Follow Instagram for more.
               </span>
             </div>
           )}
