@@ -121,7 +121,7 @@ export function MechanicShopSection() {
 >
   Every bike. Every budget. One garage.
   <br />
-  Rossi Moto Works serves riders of all kinds, from daily rides to
+  The Doctor Moto Garage serves riders of all kinds, from daily rides to
   track-ready superbikes, with skill, speed and zero compromise.
 </p>
           </div>
