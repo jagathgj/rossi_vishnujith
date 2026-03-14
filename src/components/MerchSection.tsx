@@ -166,7 +166,7 @@ export function MechanicShopSection() {
                   fontSize: 20,
                 }}
               >
-                WORKSHOP FLOOR
+                GARAGE FLOOR
               </span>
             </div>
           </div>

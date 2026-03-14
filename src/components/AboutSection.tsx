@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import RossiPortrait from "../assets/trophy1.jpeg";
+import RossiPortrait from "../assets/trophy1.webp";
 
 const stats = [
   { value: "16+", label: "Years" },
