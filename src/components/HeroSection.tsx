@@ -19,6 +19,25 @@ export function HeroSection() {
   const titleRef = useRef<HTMLDivElement>(null);
   const rafId = useRef<number>(0);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [mobileScale, setMobileScale] = useState(1);
+
+
+  useEffect(() => {
+  const el = racerRef.current?.parentElement;
+  if (!el) return;
+  const observer = new ResizeObserver((entries) => {
+    for (const entry of entries) {
+      const width = entry.contentRect.width;
+      if (width < 768) {
+        setMobileScale(1.5);
+      } else {
+        setMobileScale(1);
+      }
+    }
+  });
+  observer.observe(document.body);
+  return () => observer.disconnect();
+}, []);
 
   // Ticker animation
   useEffect(() => {
@@ -207,32 +226,30 @@ export function HeroSection() {
           left: "50%",
           transform: "translateX(-50%)",
           width: "max-content",
-          maxHeight: "70vh",
         }}
       >
         <motion.img
-          src={RacerCutout}
-          alt="Vishnu Jith — Professional Racer & Stunter"
-          className="select-none object-contain block mx-auto"
-          style={{
-            height: "clamp(480px, 50vmax, 700px)",
-            maxHeight: "70vh",
-            minWidth: "280px",
-            width: "auto",
-            maxWidth: "none",
-            mixBlendMode: "luminosity",
-            filter:
-              "drop-shadow(0 25px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 40px rgba(0,0,0,0.5))",
-          }}
-          initial={{ opacity: 0, scale: 0.9, y: 60 }}
-          animate={{
-            opacity: imageLoaded ? 1 : 0,
-            scale: imageLoaded ? 1 : 0.9,
-            y: imageLoaded ? 0 : 60,
-          }}
-          transition={{ duration: 1.3, delay: 0.1, ease: "easeOut" }}
-          onLoad={() => setImageLoaded(true)}
-        />
+  src={RacerCutout}
+  alt="Vishnu Jith — Professional Racer & Stunter"
+  className="select-none object-contain block mx-auto racer-img"
+  style={{
+    height: "clamp(480px, 50vmax, 700px)",
+    minWidth: "280px",
+    width: "auto",
+    maxWidth: "none",
+    mixBlendMode: "luminosity",
+    filter: "drop-shadow(0 25px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 40px rgba(0,0,0,0.5))",
+    transformOrigin: "center bottom",
+  }}
+  initial={{ opacity: 0, y: 60 }}
+  animate={{
+    opacity: imageLoaded ? 1 : 0,
+    y: imageLoaded ? 0 : 60,
+    scale: imageLoaded ? mobileScale : 0.9,
+  }}
+  transition={{ duration: 1.3, delay: 0.1, ease: "easeOut" }}
+  onLoad={() => setImageLoaded(true)}
+/>
       </div>
 
       {/* LAYER 4 (z-4): Bottom fade */}

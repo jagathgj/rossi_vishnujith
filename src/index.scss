@@ -56,8 +56,14 @@ body {
   color: $text-inverse;
 }
 
-@media (max-width: 768px) {
-  .racer-img {
-    height: 900px !important;
-  }
-}
+// .racer-img {
+//   transform: scale(1);
+//   transform-origin: center bottom;
+// }
+
+// @media (max-width: 767px) {
+//   .racer-img {
+//     transform: scale(1.5);
+//     transform-origin: center bottom;
+//   }
+// }
