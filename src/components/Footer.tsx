@@ -1,4 +1,5 @@
 import { Instagram, Youtube, Facebook } from "lucide-react";
+import { motion } from "motion/react";
 
 const navLinks = [
   "Home",
@@ -15,6 +16,12 @@ export function Footer() {
       .getElementById(id.toLowerCase())
       ?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const socialLinks = [
+    { icon: <Instagram size={18} />, label: "Instagram", url: "https://instagram.com/rossivishnujith", color: "#E1306C" },
+    { icon: <Youtube size={18} />, label: "YouTube", url: "https://www.youtube.com/watch?v=zvXFvvBGH-Y", color: "#FF0000" },
+    { icon: <Facebook size={18} />, label: "Facebook", url: "https://facebook.com/rossivishnujith", color: "#1877F2" },
+  ];
 
   return (
     <footer
@@ -46,13 +53,13 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Center */}
+          {/* Center - Nav links with speed hover */}
           <div className="flex flex-wrap gap-x-6 gap-y-2 md:justify-center">
             {navLinks.map((link) => (
-              <button
+              <motion.button
                 key={link}
                 onClick={() => scrollTo(link)}
-                className="transition-colors hover:text-[#E8FF00]"
+                className="relative cursor-pointer"
                 style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
                   color: "#8A8A9A",
@@ -61,37 +68,61 @@ export function Footer() {
                   textTransform: "uppercase",
                   background: "none",
                   border: "none",
-                  cursor: "pointer",
                 }}
+                whileHover="hover"
+                whileTap={{ scale: 0.95 }}
               >
-                {link}
-              </button>
+                <motion.span
+                  className="block"
+                  variants={{
+                    hover: {
+                      color: "#E8FF00",
+                      skewX: -6,
+                      x: 2,
+                      transition: { duration: 0.15 },
+                    },
+                  }}
+                >
+                  {link}
+                </motion.span>
+              </motion.button>
             ))}
           </div>
 
-          {/* Right */}
+          {/* Right - Social icons with brand color fill */}
           <div className="flex gap-3 md:justify-end">
-            {[
-              { icon: <Instagram size={18} />, label: "Instagram", url: "https://instagram.com/rossivishnujith" },
-              { icon: <Youtube size={18} />, label: "YouTube", url: "https://www.youtube.com/watch?v=zvXFvvBGH-Y" },
-              { icon: <Facebook size={18} />, label: "Facebook", url: "https://facebook.com/rossivishnujith" },
-            ].map((s) => (
-              <a
-                key={s.label}
-                href={s.url}
+            {socialLinks.map(({ icon, label, url, color }) => (
+              <motion.a
+                key={label}
+                href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center transition-all duration-200 hover:bg-[#E8FF00] hover:text-[#0A0A0A]"
+                aria-label={label}
+                className="relative flex items-center justify-center w-10 h-10 overflow-hidden cursor-pointer"
                 style={{
                   border: "1px solid #1F1F2E",
-                  backgroundColor: "transparent",
                   color: "#8A8A9A",
                   textDecoration: "none",
                 }}
-                aria-label={s.label}
+                whileHover="hover"
+                whileTap={{ scale: 0.9 }}
               >
-                {s.icon}
-              </a>
+                <motion.span
+                  className="absolute inset-0"
+                  style={{ backgroundColor: color, opacity: 0 }}
+                  variants={{
+                    hover: { opacity: 1, transition: { duration: 0.2 } },
+                  }}
+                />
+                <motion.span
+                  className="relative z-10"
+                  variants={{
+                    hover: { scale: 1.2, color: "#fff", transition: { duration: 0.2 } },
+                  }}
+                >
+                  {icon}
+                </motion.span>
+              </motion.a>
             ))}
           </div>
         </div>

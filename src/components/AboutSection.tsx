@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import RossiPortrait from "../assets/trophy1.jpeg";
 
 const stats = [
-  { value: "12+", label: "Years" },
+  { value: "16+", label: "Years" },
   { value: "50+", label: "Shows" },
-  { value: "15", label: "Trophies" },
-  { value: "3", label: "States" },
+  { value: "45", label: "Trophies" },
+  { value: "4", label: "States" },
 ];
 
 export function AboutSection() {

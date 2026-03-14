@@ -1,11 +1,22 @@
 import { useState, useEffect, useRef } from "react";
 import { Mail, Phone, MapPin, Instagram, Youtube, Facebook } from "lucide-react";
-import { useBooking } from "./BookingContext";
+import { motion } from "motion/react";
+
+type ContactItem = {
+  icon: React.ReactNode;
+  text: React.ReactNode;
+};
+
+type SocialLink = {
+  icon: React.ReactNode;
+  label: string;
+  url: string;
+  color: string;
+};
 
 export function ContactSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const { openBooking } = useBooking();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,6 +44,78 @@ export function ContactSection() {
     width: "100%",
     outline: "none",
   };
+
+  const contactItems: ContactItem[] = [
+    {
+      icon: <Mail size={18} />,
+      text: (
+        <a
+          href="mailto:rossi@rossirides.com"
+          style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none" }}
+          className="hover:text-[#E8FF00] transition-colors"
+        >
+          rossi@rossirides.com
+        </a>
+      ),
+    },
+    {
+      icon: <Phone size={18} />,
+      text: (
+        <a
+          href="tel:+918289917046"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none" }}
+          className="hover:text-[#E8FF00] transition-colors"
+        >
+          +91 82899 17046
+        </a>
+      ),
+    },
+    {
+      icon: <Instagram size={18} />,
+      text: (
+        <a
+          href="https://www.instagram.com/rossi_xrz"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none" }}
+          className="hover:text-[#E8FF00] transition-colors"
+        >
+          @rossi_xrz
+        </a>
+      ),
+    },
+    {
+      icon: <MapPin size={18} />,
+      text: (
+        <span style={{ color: "rgba(255,255,255,0.75)" }}>
+          Kerala, India
+        </span>
+      ),
+    },
+  ];
+
+  const socialLinks: SocialLink[] = [
+    {
+      icon: <Instagram size={20} />,
+      label: "Instagram",
+      url: "https://www.instagram.com/rossi_xrz?igsh=cWl5bHhlZDB1cDAx",
+      color: "#E1306C",
+    },
+    {
+      icon: <Youtube size={20} />,
+      label: "YouTube",
+      url: "https://www.youtube.com/watch?v=zvXFvvBGH-Y",
+      color: "#FF0000",
+    },
+    {
+      icon: <Facebook size={20} />,
+      label: "Facebook",
+      url: "https://facebook.com/rossivishnujith",
+      color: "#1877F2",
+    },
+  ];
 
   return (
     <section id="contact" ref={ref} className="py-24 px-6" style={{ backgroundColor: "#0F0F0F" }}>
@@ -69,93 +152,50 @@ export function ContactSection() {
           {/* Left - Contact info */}
           <div>
             <div className="space-y-6">
-              {[
-                {
-                  icon: <Mail size={18} />,
-                  text: (
-                    <a
-                      href="mailto:rossi@rossirides.com"
-                      style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none" }}
-                      className="hover:text-[#E8FF00] transition-colors"
-                    >
-                      rossi@rossirides.com
-                    </a>
-                  ),
-                },
-                {
-                  icon: <Phone size={18} />,
-                  text: (
-                    <a
-                      href="tel:+918289917046"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none" }}
-                      className="hover:text-[#E8FF00] transition-colors"
-                    >
-                      +91 82899 17046
-                    </a>
-                  ),
-                },
-                {
-                  icon: <Instagram size={18} />,
-                  text: (
-                    <a
-                      href="https://www.instagram.com/rossi_xrz"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none" }}
-                      className="hover:text-[#E8FF00] transition-colors"
-                    >
-                      @rossi_xrz
-                    </a>
-                  ),
-                },
-                {
-                  icon: <MapPin size={18} />,
-                  text: (
-                    <span style={{ color: "rgba(255,255,255,0.75)" }}>
-                      Kerala, India
-                    </span>
-                  ),
-                },
-              ].map((item, i) => (
+              {contactItems.map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
                   <div style={{ color: "#E8FF00" }}>{item.icon}</div>
-                  <span
-                    style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      fontSize: 15,
-                    }}
-                  >
+                  <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15 }}>
                     {item.text}
                   </span>
                 </div>
               ))}
             </div>
 
-            {/* Social icons */}
+            {/* Social icons with brand color fill */}
             <div className="flex gap-4 mt-10">
-              {[
-                { icon: <Instagram size={20} />, label: "Instagram", url: "https://www.instagram.com/rossi_xrz?igsh=cWl5bHhlZDB1cDAx" },
-                { icon: <Youtube size={20} />, label: "YouTube", url: "https://www.youtube.com/watch?v=zvXFvvBGH-Y" },
-                { icon: <Facebook size={20} />, label: "Facebook", url: "https://facebook.com/rossivishnujith" },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href={s.url}
+              {socialLinks.map(({ icon, label, url, color }) => (
+                <motion.a
+                  key={label}
+                  href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 flex items-center justify-center transition-all duration-200 hover:bg-[#E8FF00] hover:text-[#0A0A0A]"
+                  aria-label={label}
+                  className="relative flex items-center justify-center w-11 h-11 overflow-hidden cursor-pointer"
                   style={{
                     border: "1px solid #1F1F2E",
-                    backgroundColor: "transparent",
                     color: "#8A8A9A",
                     textDecoration: "none",
                   }}
-                  aria-label={s.label}
+                  whileHover="hover"
+                  whileTap={{ scale: 0.9 }}
                 >
-                  {s.icon}
-                </a>
+                  <motion.span
+                    className="absolute inset-0"
+                    style={{ backgroundColor: color, opacity: 0 }}
+                    variants={{
+                      hover: { opacity: 1, transition: { duration: 0.2 } },
+                    }}
+                  />
+                  <motion.span
+                    className="relative z-10"
+                    variants={{
+                      hover: { scale: 1.2, color: "#fff", transition: { duration: 0.2 } },
+                    }}
+                  >
+                    {icon}
+                  </motion.span>
+                </motion.a>
               ))}
             </div>
           </div>
@@ -164,13 +204,8 @@ export function ContactSection() {
           <form
             onSubmit={async (e) => {
               e.preventDefault();
-              
-              // Get the backend URL from environment variable or use default
-              // For GitHub Pages, you need to host the PHP file on a separate server
-              // Set VITE_BACKEND_URL in your .env file or use the default
-              const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://hellojagath.com/api/book-rossi.php';
-              
-              // In development, show a message since PHP won't work with Vite dev server
+              const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://hellojagath.com/api/book-rossi.php";
+
               if (import.meta.env.DEV) {
                 alert("📧 Form submission in development mode.\n\nWill send to: " + backendUrl + "\n\nForm data:\n" +
                   JSON.stringify({
@@ -183,7 +218,7 @@ export function ContactSection() {
                 setFormData({ name: "", email: "", phone: "", eventType: "", message: "" });
                 return;
               }
-              
+
               try {
                 const response = await fetch(backendUrl, {
                   method: "POST",
@@ -205,7 +240,7 @@ export function ContactSection() {
                   alert("❌ " + result.message);
                 }
               } catch (error) {
-                console.error('Form submission error:', error);
+                console.error("Form submission error:", error);
                 alert("❌ Failed to send request. Please try again or contact us directly at rossi@rossirides.com");
               }
             }}
@@ -245,9 +280,7 @@ export function ContactSection() {
               }}
               required
             >
-              <option value="" disabled>
-                Select Event Type *
-              </option>
+              <option value="" disabled>Select Event Type *</option>
               <option value="stunt_show">Stunt Show</option>
               <option value="race_event">Race Event</option>
               <option value="brand_collab">Brand Collaboration</option>
@@ -261,9 +294,9 @@ export function ContactSection() {
               style={{ ...inputStyle, resize: "vertical" }}
               required
             />
-            <button
+            <motion.button
               type="submit"
-              className="w-full py-3 transition-all duration-200 hover:bg-[#d4e600]"
+              className="relative overflow-hidden w-full py-3 cursor-pointer"
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 backgroundColor: "#E8FF00",
@@ -272,11 +305,36 @@ export function ContactSection() {
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 border: "none",
-                cursor: "pointer",
               }}
+              whileHover="hover"
+              whileTap={{ scale: 0.98 }}
             >
-              SEND REQUEST
-            </button>
+              <motion.span
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.4) 50%, transparent 70%)",
+                  x: "-100%",
+                }}
+                variants={{
+                  hover: {
+                    x: "200%",
+                    transition: { duration: 0.4, ease: "easeIn" },
+                  },
+                }}
+              />
+              <motion.span
+                className="relative z-10 block"
+                variants={{
+                  hover: {
+                    skewX: -8,
+                    x: 4,
+                    transition: { duration: 0.2 },
+                  },
+                }}
+              >
+                SEND REQUEST
+              </motion.span>
+            </motion.button>
           </form>
         </div>
       </div>

@@ -12,25 +12,26 @@ export function GallerySection() {
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-   const allImages = useMemo(() => {
-    const images = [
-      { src: `${import.meta.env.BASE_URL}images/1.webp`, alt: "Stunt action 1" },
-      { src: `${import.meta.env.BASE_URL}images/2.webp`, alt: "Stunt action 2" },
-      { src: `${import.meta.env.BASE_URL}images/3.webp`, alt: "Racing track" },
-      { src: `${import.meta.env.BASE_URL}images/4.webp`, alt: "Bike close-up 1" },
-      { src: `${import.meta.env.BASE_URL}images/5.webp`, alt: "Bike close-up 2" },
-      { src: `${import.meta.env.BASE_URL}images/6.webp`, alt: "Event crowd" },
-      { src: `${import.meta.env.BASE_URL}images/7.webp`, alt: "Racing shot" },
-      { src: `${import.meta.env.BASE_URL}images/8.webp`, alt: "Speed shot" },
-      { src: `${import.meta.env.BASE_URL}images/9.webp`, alt: "Racing track action" },
-      { src: `${import.meta.env.BASE_URL}images/10.webp`, alt: "Motorcycle stunt" },
-      { src: `${import.meta.env.BASE_URL}images/11.webp`, alt: "Sport bike" },
-      { src: `${import.meta.env.BASE_URL}images/12.webp`, alt: "Sport bike" },
-      { src: `${import.meta.env.BASE_URL}images/13.webp`, alt: "Sport bike" },
-      { src: `${import.meta.env.BASE_URL}images/14.webp`, alt: "Sport bike" },
-    ];
-    return images.sort(() => Math.random() - 0.5);
-  }, []);
+const allImages = useMemo(() => {
+  const first = { src: `${import.meta.env.BASE_URL}images/0.webp`, alt: "Stunt action 1" };
+  const rest = [
+    { src: `${import.meta.env.BASE_URL}images/1.webp`, alt: "Stunt action 1" },
+    { src: `${import.meta.env.BASE_URL}images/2.webp`, alt: "Stunt action 2" },
+    { src: `${import.meta.env.BASE_URL}images/3.webp`, alt: "Racing track" },
+    { src: `${import.meta.env.BASE_URL}images/4.webp`, alt: "Bike close-up 1" },
+    { src: `${import.meta.env.BASE_URL}images/5.webp`, alt: "Bike close-up 2" },
+    { src: `${import.meta.env.BASE_URL}images/6.webp`, alt: "Event crowd" },
+    { src: `${import.meta.env.BASE_URL}images/7.webp`, alt: "Racing shot" },
+    { src: `${import.meta.env.BASE_URL}images/8.webp`, alt: "Speed shot" },
+    { src: `${import.meta.env.BASE_URL}images/9.webp`, alt: "Racing track action" },
+    { src: `${import.meta.env.BASE_URL}images/10.webp`, alt: "Motorcycle stunt" },
+    { src: `${import.meta.env.BASE_URL}images/11.webp`, alt: "Sport bike" },
+    { src: `${import.meta.env.BASE_URL}images/12.webp`, alt: "Sport bike" },
+    { src: `${import.meta.env.BASE_URL}images/13.webp`, alt: "Sport bike" },
+    { src: `${import.meta.env.BASE_URL}images/14.webp`, alt: "Sport bike" },
+  ].sort(() => Math.random() - 0.5);
+  return [first, ...rest];
+}, []);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
