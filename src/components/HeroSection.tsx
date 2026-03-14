@@ -241,13 +241,13 @@ export function HeroSection() {
     filter: "drop-shadow(0 25px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 40px rgba(0,0,0,0.5))",
     transformOrigin: "center bottom",
   }}
-  initial={{ opacity: 0, y: 60 }}
+  initial={{ opacity: 0, y: 30, scale: mobileScale }}
   animate={{
     opacity: imageLoaded ? 1 : 0,
-    y: imageLoaded ? 0 : 60,
-    scale: imageLoaded ? mobileScale : 0.9,
+    y: imageLoaded ? 0 : 30,
+    scale: mobileScale,
   }}
-  transition={{ duration: 1.3, delay: 0.1, ease: "easeOut" }}
+  transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
   onLoad={() => setImageLoaded(true)}
 />
       </div>
