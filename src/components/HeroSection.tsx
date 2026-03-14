@@ -87,7 +87,11 @@ export function HeroSection() {
     <section
       id="home"
       className="relative w-full overflow-hidden"
-      style={{ height: "100vh" }}
+      style={{
+        height: "100vh",
+        minHeight: "-webkit-fill-available",
+        maxHeight: "100vh"
+      }}
     >
       {/* LAYER 1: Background */}
       <div
@@ -203,6 +207,7 @@ export function HeroSection() {
           left: "50%",
           transform: "translateX(-50%)",
           width: "max-content",
+          maxHeight: "70vh",
         }}
       >
         <motion.img
@@ -210,9 +215,9 @@ export function HeroSection() {
           alt="Vishnu Jith — Professional Racer & Stunter"
           className="select-none object-contain block mx-auto"
           style={{
-            height: "clamp(780px, 50vmax, 700px)",
-            minHeight: "480px",
-            minWidth: "380px",
+            height: "clamp(480px, 50vmax, 700px)",
+            maxHeight: "70vh",
+            minWidth: "280px",
             width: "auto",
             maxWidth: "none",
             mixBlendMode: "luminosity",
